@@ -13,18 +13,26 @@ import java.time.LocalDateTime;
 @AllArgsConstructor
 @NoArgsConstructor
 public class User {
+
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long userId;
-    private String fullName;
-    private String email;
-    private String phoneNumber;
-    @Embedded
-    private Gender gender;
-    @Embedded
-    private Role role;
-    private LocalDateTime createdAt;
-    private LocalDateTime updatedAt;
-    private boolean userProfileIsActive;
 
+    private String fullName;
+
+    private String email;
+
+    private String phoneNumber;
+
+    @Enumerated(EnumType.STRING)
+    private Gender gender;
+
+    @Enumerated(EnumType.STRING)
+    private Role role;
+
+    private LocalDateTime createdAt;
+
+    private LocalDateTime updatedAt;
+
+    private boolean userProfileIsActive;
 }
