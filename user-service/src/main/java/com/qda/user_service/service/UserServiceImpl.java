@@ -13,6 +13,8 @@ import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDateTime;
+
 @Service
 @RequiredArgsConstructor
 @Slf4j
@@ -34,6 +36,9 @@ public class UserServiceImpl implements UserService {
 
         try {
             User user = UserMapper.toUserEntity(request);
+            user.setCreatedAt(LocalDateTime.now());
+            user.setUpdatedAt(LocalDateTime.now());
+            user.setUserProfileIsActive(true);
             User savedUser = repository.save(user);
             log.info("User created successfully: {}", savedUser.getUserId());
             return UserMapper.toUserDto(savedUser);
