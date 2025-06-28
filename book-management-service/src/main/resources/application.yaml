@@ -1,0 +1,14 @@
+spring:
+  application:
+    name: BOOK-MANAGEMENT-SERVICE
+
+  data:
+    mongodb:
+      username: admin
+      password: admin
+      database: book-management-db
+      port: 27017
+      host: localhost
+
+server:
+  port: 8082
